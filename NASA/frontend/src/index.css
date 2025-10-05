@@ -1,0 +1,176 @@
+/* Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NASA Space Biology AI/ML Knowledge Engine Design System */
+@layer base {
+  :root {
+    --background: 230 82% 7%;
+    --foreground: 210 100% 98%;
+    --card: 230 45% 12%;
+    --card-foreground: 210 100% 98%;
+    --popover: 230 50% 10%;
+    --popover-foreground: 210 100% 98%;
+    --primary: 214 89% 31%;
+    --primary-foreground: 210 100% 98%;
+    --secondary: 210 20% 92%;
+    --secondary-foreground: 230 82% 7%;
+    --muted: 230 35% 18%;
+    --muted-foreground: 210 40% 75%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 230 82% 7%;
+    --ml-purple: 271 76% 53%;
+    --ml-purple-foreground: 210 100% 98%;
+    --nebula: 250 69% 61%;
+    --nebula-foreground: 210 100% 98%;
+    --solar: 41 95% 68%;
+    --solar-foreground: 230 82% 7%;
+    --mars: 11 73% 61%;
+    --mars-foreground: 210 100% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 100% 98%;
+    --border: 230 35% 25%;
+    --input: 230 40% 15%;
+    --ring: 180 100% 50%;
+    --radius: 0.75rem;
+
+    --gradient-space: linear-gradient(135deg, hsl(230, 82%, 7%) 0%, hsl(235, 60%, 15%) 50%, hsl(230, 45%, 12%) 100%);
+    --gradient-neural: linear-gradient(90deg, hsl(180, 100%, 50%) 0%, hsl(271, 76%, 53%) 100%);
+    --gradient-mission: linear-gradient(135deg, hsl(214, 89%, 31%) 0%, hsl(180, 100%, 50%) 100%);
+    --gradient-hologram: linear-gradient(180deg, hsla(180, 100%, 50%, 0.15) 0%, hsla(271, 76%, 53%, 0.15) 100%);
+    --shadow-neural: 0 0 40px hsla(180, 100%, 50%, 0.3);
+    --shadow-ai: 0 10px 40px hsla(271, 76%, 53%, 0.25);
+    --glow-mission: 0 0 30px hsla(214, 89%, 31%, 0.5);
+    --glow-accent: 0 0 20px hsla(180, 100%, 50%, 0.4);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    background: var(--gradient-space);
+    color: hsl(var(--foreground));
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .text-tech {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  .text-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  /* Animated Star Field */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, white, transparent),
+      radial-gradient(1px 1px at 50% 50%, white, transparent),
+      radial-gradient(1px 1px at 80% 10%, white, transparent),
+      radial-gradient(2px 2px at 90% 60%, white, transparent),
+      radial-gradient(1px 1px at 33% 80%, white, transparent),
+      radial-gradient(1px 1px at 75% 25%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: stars 120s linear infinite;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* Animations and Utilities */
+@layer utilities {
+  /* Neural Pulse */
+  .neural-pulse { animation: pulse-glow 2s ease-in-out infinite; }
+  @keyframes pulse-glow {
+    0%,100% { box-shadow: var(--shadow-neural); opacity:1; }
+    50% { box-shadow:0 0 60px hsla(180,100%,50%,0.5); opacity:0.9; }
+  }
+
+  /* AI Process */
+  .ai-process { animation: ai-thinking 1.5s ease-in-out infinite; }
+  @keyframes ai-thinking {
+    0%,100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.2); }
+  }
+
+  /* Hologram Shimmer */
+  .hologram-shimmer { position: relative; overflow:hidden; }
+  .hologram-shimmer::after {
+    content:'';
+    position:absolute;
+    top:-50%; left:-50%;
+    width:200%; height:200%;
+    background: linear-gradient(45deg, transparent 30%, hsla(180,100%,50%,0.1) 50%, transparent 70%);
+    animation: shimmer 3s linear infinite;
+  }
+  @keyframes shimmer {
+    0% { transform:translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform:translateX(100%) translateY(100%) rotate(45deg); }
+  }
+
+  /* Data Stream */
+  .data-stream { animation: stream 2s linear infinite; }
+  @keyframes stream {
+    0% { transform: translateY(-100%); opacity:0; }
+    50% { opacity:1; }
+    100% { transform: translateY(100%); opacity:0; }
+  }
+
+  /* Orbital Float */
+  .orbital-float { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Star Field Animation */
+  @keyframes stars {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+
+  /* Mission Launch */
+  .launch-transition { animation: launch 0.6s cubic-bezier(0.68,-0.55,0.265,1.55); }
+  @keyframes launch {
+    0% { transform: translateY(50px) scale(0.9); opacity:0; }
+    100% { transform: translateY(0) scale(1); opacity:1; }
+  }
+
+  /* Gradient Texts */
+  .text-gradient-neural {
+    background: var(--gradient-neural);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .text-gradient-mission {
+    background: var(--gradient-mission);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+}

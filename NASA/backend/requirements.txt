@@ -1,0 +1,37 @@
+# Core FastAPI and Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-dotenv>=1.0.0
+httpx>=0.25.0
+python-multipart>=0.0.6
+
+# Pydantic for data validation (v2 compatible)
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Database and Caching
+redis>=5.0.0
+aioredis>=2.0.1
+neo4j>=5.14.0
+aiosqlite>=0.19.0
+sqlalchemy>=2.0.0
+
+# AI Services - Gemini Primary, OpenAI Fallback
+google-generativeai>=0.3.2
+openai>=1.6.0
+
+# NLP and ML (for local fallbacks)
+nltk>=3.8.1
+numpy>=1.26.0
+pandas>=2.1.4
+scikit-learn>=1.3.2
+
+# Utilities
+jsonschema>=4.20.0
+requests>=2.31.0
+joblib>=1.3.2
+typing-extensions>=4.9.0
+
+# Development and Testing
+pytest>=7.4.3
+pytest-asyncio>=0.21.1
